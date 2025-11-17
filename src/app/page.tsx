@@ -54,7 +54,7 @@ export default function Home() {
                 Designing and shipping AI‑native products end‑to‑end.
               </h2>
               <p className="mt-3 text-sm md:text-base text-zinc-400">
-                From LLM systems design to production‑ready web apps, I help teams turn ambiguous ideas into deployed, measurable products.
+                From LLM systems design to production‑ready web apps, I help teams turn vision into deployed, measurable products.
               </p>
             </div>
             <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-start">
@@ -129,8 +129,8 @@ export default function Home() {
                 </span>{" "}
                 around model calls — from retrieval‑augmented generation (RAG)
                 to multi‑step tool‑using agents. I favor composable prompts,
-                schema‑driven tooling, and high‑signal telemetry instead of
-                one‑off hacks.
+                schema‑driven tooling, and high‑signal telemetry over brittle
+                integrations.
               </p>
               <p className="text-sm text-zinc-300">
                 On the infrastructure side, I prefer{" "}
@@ -152,11 +152,6 @@ export default function Home() {
                 <li>· IDEs: Cursor, Windsor, and good old Terminal :-)</li>
                 <li>· Infra: Vercel, Netlify, CI/CD, observability tooling</li>
               </ul>
-              <p className="mt-3 text-zinc-400">
-                For each project above, I can provide a deeper breakdown of the
-                exact stack and AI architecture once we link the GitHub
-                repositories.
-              </p>
             </div>
           </div>
         </Section>
@@ -177,8 +172,8 @@ export default function Home() {
               base that future contributors will actually enjoy working in.
             </p>
             <p className="text-sm md:text-base text-zinc-300">
-              This portfolio highlights shipped, deployed work — not just
-              prototypes. Every project above represents{" "}
+              This portfolio highlights shipped work — not just prototypes.
+              Every project above represents{" "}
               <span className="font-medium">
                 real users, real constraints, and real iteration cycles
               </span>
@@ -193,12 +188,18 @@ export default function Home() {
           title="Let’s build your next AI‑native product."
           subtitle="Available for select collaborations, advisory, and hands‑on engineering."
         >
-          <div className="flex flex-wrap items-center gap-4 text-sm text-zinc-300">
-            <p>
+          <div className="space-y-4">
+            <p className="text-sm text-zinc-300">
               Share a bit about your product, where it is today, and what you
               want AI to unlock — I can help design and ship the path from idea
               to production.
             </p>
+            <a
+              href="mailto:aquariusmaximusiam@gmail.com"
+              className="inline-flex items-center gap-2 text-sm font-medium text-pink-300 transition hover:text-pink-200"
+            >
+              aquariusmaximusiam@gmail.com
+            </a>
           </div>
         </Section>
       </main>

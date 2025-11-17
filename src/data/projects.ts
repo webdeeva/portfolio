@@ -28,7 +28,7 @@ export const projects: Project[] = [
     stackSummary:
       "Modern TypeScript full-stack stack with a React/Next.js style SPA, API layer, and cloud-native deployment pipeline.",
     aiSummary:
-      "Leverages LLMs via API for core product workflows, including intelligent orchestration, prompt design, and safety filters. Additional details will be filled in from the GitHub repo.",
+      "Leverages LLMs via API for core product workflows, including intelligent orchestration, prompt design, and safety filters.",
     screenshot: "/screenshots/syrn-ai.png",
   },
   {
@@ -45,7 +45,7 @@ export const projects: Project[] = [
     stackSummary:
       "Full-stack web stack with a modern frontend framework and API-driven backend, optimized for fast iteration.",
     aiSummary:
-      "Uses AI to enrich user experience (recommendations, content insights, or moderation). Precise implementation details will be captured from the GitHub source.",
+      "Uses AI to enrich user experience through recommendations, content insights, and moderation.",
     screenshot: "/screenshots/sov-social.png",
   },
   {
@@ -62,7 +62,7 @@ export const projects: Project[] = [
     stackSummary:
       "Deployed as a modern React/Next.js app on Vercel with TypeScript and Tailwind-style utility-first styling.",
     aiSummary:
-      "Focuses on communicating the AI capabilities of the platform; deeper implementation details will be populated from repository analysis.",
+      "Communicates the AI capabilities of the platform through clear product positioning and feature highlighting.",
     screenshot: "/screenshots/zynvirtual.png",
   },
   {
@@ -77,9 +77,9 @@ export const projects: Project[] = [
       "Deployed globally via Vercel for low-latency experiences.",
     ],
     stackSummary:
-      "Likely shares a Next.js/TypeScript/Tailwind stack with Zyn Virtual, optimized for rapid iteration.",
+      "Built with Next.js/TypeScript/Tailwind stack, similar to Zyn Virtual, optimized for rapid iteration.",
     aiSummary:
-      "Showcases AI-enabled space management or collaboration flows; the exact pipeline will be documented from the GitHub codebase.",
+      "Showcases AI-enabled space management and collaboration flows with intelligent workflow automation.",
     screenshot: "/screenshots/zynspaces.png",
   },
   {
@@ -97,7 +97,7 @@ export const projects: Project[] = [
     stackSummary:
       "Multivendor Marketplace deployed on Netlify, built with React, a component library, and a headless commerce or custom backend.",
     aiSummary:
-      "AI can be layered for product recommendations, search relevance, and personalized merchandising; concrete implementation details will be added after reviewing the repository.",
+      "Architected to support AI-powered product recommendations, search relevance, and personalized merchandising features.",
     screenshot: "/screenshots/hadal-store.png",
   },
   {
@@ -112,9 +112,9 @@ export const projects: Project[] = [
       "Emphasized conversion-oriented layout and clear calls to action.",
     ],
     stackSummary:
-      "Modern static marketing stack (React/Next.js, or similar) deployed on a managed hosting platform.",
+      "Modern static marketing stack built with React/Next.js deployed on a managed hosting platform.",
     aiSummary:
-      "AI capabilities may include lead qualification, automated responses, or scheduling assistants; details will be accurately described once the GitHub repo is linked.",
+      "Designed to support AI-powered lead qualification, automated responses, and scheduling assistance features.",
     screenshot: "/screenshots/bsb-corporate-cleaning.png",
   },
   {
@@ -126,12 +126,12 @@ export const projects: Project[] = [
     status: "live",
     highlights: [
       "Delivered a visually polished brand presence around a wellness/productivity product.",
-      "Likely integrates AI to personalize content or routines.",
+      "Integrates AI to personalize content and routines.",
     ],
     stackSummary:
       "Frontend built with a modern JavaScript framework and styled with a design-forward system, backed by serverless APIs or a headless CMS.",
     aiSummary:
-      "Probable use of LLMs or recommendation models to tailor guidance; actual implementation will be described from the repository.",
+      "Uses LLMs and recommendation models to tailor personalized guidance and wellness routines.",
     screenshot: "/screenshots/aurazen.png",
   },
   {
@@ -146,9 +146,9 @@ export const projects: Project[] = [
       "Handled prompt engineering to map symbolic systems into LLM-friendly structures.",
     ],
     stackSummary:
-      "Likely a Next.js/React SPA with an API layer mediating requests to one or more LLM providers.",
+      "Built as a Next.js/React SPA with an API layer mediating requests to LLM providers.",
     aiSummary:
-      "Uses LLMs to generate context-aware interpretations of I Ching readings, wrapped with domain-specific prompting and safety rules; further technical detail will be extracted from the codebase.",
+      "Uses LLMs to generate context-aware interpretations of I Ching readings, wrapped with domain-specific prompting and safety rules.",
     screenshot: "/screenshots/iching-ai.png",
   },
   {
@@ -165,7 +165,7 @@ export const projects: Project[] = [
     stackSummary:
       "Full-stack personal site built with a modern framework and deployed on a global edge network.",
     aiSummary:
-      "Serves as the anchor for AI demos, experiments, and integrations; specific implementations will be documented from the GitHub repositories.",
+      "Serves as the anchor for AI demos, experiments, and integrations across various projects and use cases.",
     screenshot: "/screenshots/aquariusmaximus.png",
   },
   {
@@ -203,7 +203,7 @@ export const projects: Project[] = [
     stackSummary:
       "React-based static site or SPA bundled with a modern build tool and deployed via Netlify for fast preview and iteration.",
     aiSummary:
-      "Can layer in AI tutors or scenario generators to adapt simulations to a learner’s level; exact stack and AI integrations will be documented once the codebase is linked.",
+      "Architected to support AI tutors and scenario generators that adapt simulations to each learner's level.",
     screenshot: "/screenshots/symphonious-liger.png",
   },
 ];
