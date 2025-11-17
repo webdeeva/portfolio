@@ -90,7 +90,9 @@ export default function Home() {
               </div>
             </div>
 
-            <HeroShowcase />
+            <div className="-mt-32">
+              <HeroShowcase />
+            </div>
           </div>
           </div>
         </section>
