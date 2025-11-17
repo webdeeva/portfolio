@@ -58,7 +58,7 @@ export default function Home() {
               </p>
             </div>
             <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-start">
-            <div className="space-y-5 max-w-lg">
+            <div className="space-y-5 max-w-md">
               <p className="text-sm md:text-base text-zinc-300">
                 I specialize in{" "}
                 <span className="font-medium text-zinc-50">
