@@ -95,7 +95,7 @@ export const projects: Project[] = [
       "Designed responsive information architecture for About, Categories, and Newsletter signup.",
     ],
     stackSummary:
-      "Static/SPA marketplace frontend deployed on Netlify, likely built with React, a component library, and a headless commerce or custom backend.",
+      "Multivendor Marketplace deployed on Netlify, built with React, a component library, and a headless commerce or custom backend.",
     aiSummary:
       "AI can be layered for product recommendations, search relevance, and personalized merchandising; concrete implementation details will be added after reviewing the repository.",
     screenshot: "/screenshots/hadal-store.png",
