@@ -47,9 +47,7 @@ export default function Home() {
           title="Designing and shipping AI‑native products end‑to‑end."
           subtitle="From LLM systems design to production‑ready web apps, I help teams turn ambiguous ideas into deployed, measurable products."
         >
-          <div className="grid gap-10 md:grid-cols-[minmax(0,1.4fr),minmax(0,2fr)] md:items-start">
-            <HeroShowcase />
-
+          <div className="grid gap-10 md:grid-cols-[minmax(0,1fr),minmax(0,1fr)] md:items-start">
             <div className="space-y-5">
               <p className="text-sm md:text-base text-zinc-300">
                 I specialize in{" "}
@@ -81,6 +79,8 @@ export default function Home() {
                 </Link>
               </div>
             </div>
+
+            <HeroShowcase />
           </div>
         </Section>
 
