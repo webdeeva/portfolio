@@ -41,13 +41,23 @@ export default function Home() {
       </header>
 
       <main>
-        <Section
+        <section
           id="hero"
-          eyebrow="AI ENGINEER · FULL‑STACK DEVELOPER"
-          title="Designing and shipping AI‑native products end‑to‑end."
-          subtitle="From LLM systems design to production‑ready web apps, I help teams turn ambiguous ideas into deployed, measurable products."
+          className="relative scroll-mt-24 py-12 md:py-16 border-b border-zinc-900/30"
         >
-          <div className="grid gap-10 md:grid-cols-[minmax(0,1fr),minmax(0,1fr)] md:items-start">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-8 max-w-2xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-pink-300">
+                AI ENGINEER · FULL‑STACK DEVELOPER
+              </p>
+              <h2 className="mt-2 text-2xl md:text-3xl font-semibold text-zinc-50">
+                Designing and shipping AI‑native products end‑to‑end.
+              </h2>
+              <p className="mt-3 text-sm md:text-base text-zinc-400">
+                From LLM systems design to production‑ready web apps, I help teams turn ambiguous ideas into deployed, measurable products.
+              </p>
+            </div>
+            <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-start">
             <div className="space-y-5">
               <p className="text-sm md:text-base text-zinc-300">
                 I specialize in{" "}
@@ -82,7 +92,8 @@ export default function Home() {
 
             <HeroShowcase />
           </div>
-        </Section>
+          </div>
+        </section>
 
         <Section
           id="projects"
