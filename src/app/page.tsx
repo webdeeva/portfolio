@@ -46,7 +46,7 @@ export default function Home() {
           className="relative scroll-mt-24 py-12 md:py-16 border-b border-zinc-900/30"
         >
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="mb-8 max-w-2xl">
+            <div className="mb-8 max-w-lg">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-pink-300">
                 AI ENGINEER · FULL‑STACK DEVELOPER
               </p>
