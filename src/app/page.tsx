@@ -148,6 +148,7 @@ export default function Home() {
                 <li>· Frontend: Next.js, React, TypeScript, Tailwind CSS</li>
                 <li>· Backend: Node/TypeScript APIs, serverless functions</li>
                 <li>· AI: LLM APIs, RAG, vector search, tool‑using agents</li>
+                <li>· Models: Claude (Anthropic), GPT-4 (OpenAI), Cursor AI</li>
                 <li>· Infra: Vercel, Netlify, CI/CD, observability tooling</li>
               </ul>
               <p className="mt-3 text-zinc-400">
