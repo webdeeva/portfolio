@@ -6,166 +6,177 @@ export type Project = {
   url: string;
   githubUrl?: string;
   status?: "live" | "wip" | "archived";
+  platform?: "web" | "mobile";
   highlights: string[];
   stackSummary?: string;
   aiSummary?: string;
   screenshot?: string; // path under /public, e.g. "/screenshots/zynvirtual.png"
+  screenshots?: string[]; // multiple screenshots, typically for mobile apps
 };
 
 export const projects: Project[] = [
   {
     id: "syrn-ai",
     name: "syrn.ai",
-    role: "Founding AI Engineer & Full‑Stack Developer",
-    tagline: "AI-native product experience powered by modern LLM tooling.",
+    role: "Founding Engineer",
+    tagline:
+      "Product site for an AI company — clean marketing surface introducing what the team is building.",
     url: "https://syrn.ai/",
     status: "live",
+    platform: "web",
     highlights: [
-      "Designed end-to-end architecture for an AI-first product experience.",
-      "Implemented scalable, cloud-native frontend and backend foundations.",
-      "Integrated experimentation and analytics to iterate on AI features.",
+      "Shipped the public-facing site from early sketches through production.",
+      "Built the frontend, API layer, and deployment pipeline end-to-end.",
+      "Set up analytics and experimentation so the team could iterate on real signals.",
     ],
     stackSummary:
-      "Modern TypeScript full-stack stack with a React/Next.js style SPA, API layer, and cloud-native deployment pipeline.",
+      "Next.js / TypeScript / Tailwind on a cloud-native deployment pipeline.",
     aiSummary:
-      "Leverages LLMs via API for core product workflows, including intelligent orchestration, prompt design, and safety filters.",
+      "Core product (not the site) uses LLMs for orchestration, prompting, and safety rails.",
     screenshot: "/screenshots/syrn-ai.png",
   },
   {
     id: "sov-social",
     name: "sov.social",
-    role: "AI Engineer & Platform Developer",
-    tagline: "Experimental social platform exploring AI-augmented communities.",
+    role: "Full‑Stack Engineer",
+    tagline:
+      "Social platform focused on identity, feeds, and secure interactions between members.",
     url: "https://sov.social/",
     status: "live",
+    platform: "web",
     highlights: [
-      "Built social features with focus on identity, feeds, and secure interactions.",
-      "Explored AI-augmented discovery and content surfacing.",
+      "Implemented core social features: profiles, feeds, and messaging.",
+      "Built auth and session flows with a focus on account safety.",
+      "Shipped a responsive web interface built for rapid iteration.",
     ],
     stackSummary:
-      "Full-stack web stack with a modern frontend framework and API-driven backend, optimized for fast iteration.",
-    aiSummary:
-      "Uses AI to enrich user experience through recommendations, content insights, and moderation.",
+      "Next.js / TypeScript frontend with an API-driven backend.",
     screenshot: "/screenshots/sov-social.png",
   },
   {
     id: "zynvirtual",
     name: "Zyn Virtual",
-    role: "Product Engineer & AI Integrator",
-    tagline: "Virtual experiences powered by AI-driven UX.",
+    role: "Product Engineer",
+    tagline:
+      "Landing experience for Zyn Virtual — clear brand narrative and a fast, responsive launch page.",
     url: "https://zynvirtual.vercel.app/",
     status: "live",
+    platform: "web",
     highlights: [
-      "Crafted a clean, responsive landing experience deployed on Vercel.",
-      "Positioned the brand and product story around AI-native capabilities.",
+      "Designed and shipped a polished, responsive marketing site.",
+      "Dialed in typography, hierarchy, and CTA flow for clarity.",
+      "Deployed globally on Vercel with fast time-to-first-byte.",
     ],
-    stackSummary:
-      "Deployed as a modern React/Next.js app on Vercel with TypeScript and Tailwind-style utility-first styling.",
-    aiSummary:
-      "Communicates the AI capabilities of the platform through clear product positioning and feature highlighting.",
+    stackSummary: "Next.js on Vercel with TypeScript and Tailwind CSS.",
     screenshot: "/screenshots/zynvirtual.png",
   },
   {
     id: "zynspaces",
     name: "Zyn Spaces",
-    role: "Full‑Stack & Product Engineer",
-    tagline: "Spaces and collaboration tools built around AI workflows.",
+    role: "Frontend Engineer",
+    tagline:
+      "Spaces and collaboration site — the product story told through a fast, modern web experience.",
     url: "https://zynspaces.vercel.app/",
     status: "live",
+    platform: "web",
     highlights: [
-      "Implemented fast, responsive UI for exploring AI-driven workflows.",
-      "Deployed globally via Vercel for low-latency experiences.",
+      "Built a clean, responsive interface that communicates the product clearly.",
+      "Kept bundle size small and interactions snappy across devices.",
+      "Deployed via Vercel for low-latency global delivery.",
     ],
-    stackSummary:
-      "Built with Next.js/TypeScript/Tailwind stack, similar to Zyn Virtual, optimized for rapid iteration.",
-    aiSummary:
-      "Showcases AI-enabled space management and collaboration flows with intelligent workflow automation.",
+    stackSummary: "Next.js / TypeScript / Tailwind on Vercel.",
     screenshot: "/screenshots/zynspaces.png",
   },
   {
     id: "hadal-store",
     name: "The Hadal Store",
     role: "Full‑Stack Marketplace Engineer",
-    tagline: "Premium multi-vendor marketplace with a curated catalog.",
+    tagline:
+      "Multi-vendor marketplace with a curated catalog across electronics, furniture, fashion, and home.",
     url: "https://lighthearted-figolla-69cd34.netlify.app/",
     status: "live",
+    platform: "web",
     highlights: [
-      "Built marketplace layout with categories (Electronics, Furniture, Fashion, At Home).",
-      "Implemented marketing copy and trust markers (Secure Payment, Fast Delivery, Buyer Protection, 24/7 Support).",
-      "Designed responsive information architecture for About, Categories, and Newsletter signup.",
+      "Built storefront with category navigation, product listings, and detail pages.",
+      "Implemented trust markers — secure payment, fast delivery, buyer protection, 24/7 support.",
+      "Structured information architecture for About, Categories, and newsletter signup.",
     ],
     stackSummary:
-      "Multivendor Marketplace deployed on Netlify, built with React, a component library, and a headless commerce or custom backend.",
-    aiSummary:
-      "Architected to support AI-powered product recommendations, search relevance, and personalized merchandising features.",
+      "React-based storefront deployed on Netlify, backed by a commerce layer for catalog and checkout.",
     screenshot: "/screenshots/hadal-store.png",
   },
   {
     id: "bsb-corporate-cleaning",
     name: "BSB Corporate Cleaning",
     role: "Technical Lead & Frontend Engineer",
-    tagline: "Corporate cleaning brand site with clear service positioning.",
+    tagline:
+      "Marketing site for a corporate cleaning business — clear services, trust signals, and a direct path to book.",
     url: "https://bsbcorporatecleaning.com/",
     status: "live",
+    platform: "web",
     highlights: [
-      "Delivered a professional marketing site optimized for clarity and trust.",
-      "Emphasized conversion-oriented layout and clear calls to action.",
+      "Delivered a professional brand site optimized for clarity and conversions.",
+      "Structured services, coverage, and contact flow so prospects can get a quote quickly.",
+      "Shipped responsive pages that look polished on phone, tablet, and desktop.",
     ],
     stackSummary:
-      "Modern static marketing stack built with React/Next.js deployed on a managed hosting platform.",
-    aiSummary:
-      "Designed to support AI-powered lead qualification, automated responses, and scheduling assistance features.",
+      "Static/SSG marketing stack with a modern framework and managed hosting.",
     screenshot: "/screenshots/bsb-corporate-cleaning.png",
   },
   {
     id: "aurazen",
     name: "Aurazen",
-    role: "AI Product Engineer",
-    tagline: "Wellness or productivity-focused experience with AI assistance.",
+    role: "Product Engineer",
+    tagline:
+      "Wellness brand site — calm, design-forward presence for the Aurazen product and story.",
     url: "https://aurazen.co/",
     status: "live",
+    platform: "web",
     highlights: [
-      "Delivered a visually polished brand presence around a wellness/productivity product.",
-      "Integrates AI to personalize content and routines.",
+      "Delivered a visually polished, brand-led web presence.",
+      "Crafted typography, color, and motion that match the wellness positioning.",
+      "Responsive from mobile up, with attention to pacing and whitespace.",
     ],
     stackSummary:
-      "Frontend built with a modern JavaScript framework and styled with a design-forward system, backed by serverless APIs or a headless CMS.",
-    aiSummary:
-      "Uses LLMs and recommendation models to tailor personalized guidance and wellness routines.",
+      "Modern JavaScript frontend with a design-forward system, backed by serverless APIs or a headless CMS.",
     screenshot: "/screenshots/aurazen.png",
   },
   {
     id: "iching-ai",
     name: "I Ching AI",
-    role: "Creator & AI Systems Designer",
-    tagline: "Modern AI interpretation of the I Ching for reflective guidance.",
+    role: "Creator & Engineer",
+    tagline:
+      "Digital I Ching reading — cast hexagrams and get thoughtful, context-aware interpretations.",
     url: "https://ichingai.app/",
     status: "live",
+    platform: "web",
     highlights: [
-      "Built an interactive experience combining tradition with modern AI.",
-      "Handled prompt engineering to map symbolic systems into LLM-friendly structures.",
+      "Built the hexagram casting flow and a clean reading interface.",
+      "Mapped the traditional 64-hexagram system into a structured data layer.",
+      "Wrote prompt logic so interpretations stay grounded in the source material.",
     ],
     stackSummary:
-      "Built as a Next.js/React SPA with an API layer mediating requests to LLM providers.",
+      "Next.js / React app with an API layer that proxies requests to an LLM provider.",
     aiSummary:
-      "Uses LLMs to generate context-aware interpretations of I Ching readings, wrapped with domain-specific prompting and safety rules.",
+      "Uses an LLM to generate interpretations, with domain-specific prompting and guardrails so responses remain faithful to the tradition.",
     screenshot: "/screenshots/iching-ai.png",
   },
   {
     id: "aquariusmaximus",
     name: "AquariusMaximus.com",
-    role: "Personal Brand & Portfolio Site",
-    tagline: "The central hub for Aquarius Maximus’ AI and engineering work.",
+    role: "Personal Brand Site",
+    tagline:
+      "The central hub for my work — projects, writing, and things I'm exploring.",
     url: "https://www.aquariusmaximus.com/",
     status: "live",
+    platform: "web",
     highlights: [
-      "Defines personal narrative, positioning, and core offerings.",
-      "Showcases selected projects, writing, and AI experiments.",
+      "Defines the personal brand and positioning.",
+      "Showcases selected projects and ongoing experiments.",
+      "Deployed on a global edge network for fast loads anywhere.",
     ],
     stackSummary:
-      "Full-stack personal site built with a modern framework and deployed on a global edge network.",
-    aiSummary:
-      "Serves as the anchor for AI demos, experiments, and integrations across various projects and use cases.",
+      "Modern full-stack framework deployed on a global edge CDN.",
     screenshot: "/screenshots/aquariusmaximus.png",
   },
   {
@@ -173,39 +184,108 @@ export const projects: Project[] = [
     name: "Emotion Island",
     role: "Game Designer & Frontend Developer",
     tagline:
-      "A playful, narrative-driven web game that teaches kids emotional regulation with Hue the Dragon.",
+      "A playful, narrative-driven web game that helps kids learn emotional regulation with Hue the Dragon.",
     url: "https://emotionisland.netlify.app/",
     status: "live",
+    platform: "web",
     highlights: [
-      "Designed a map-based experience where children explore regions like Angry Volcano, Sadness Swamp, and Fear Forest to learn coping skills.",
-      "Implemented interactive mini-games to teach breathing exercises, reframing, and self-kindness in an accessible way.",
-      "Crafted microcopy and UX flows tailored for younger players and caregivers.",
+      "Designed a map-based world where kids explore places like Angry Volcano, Sadness Swamp, and Fear Forest to learn coping skills.",
+      "Built interactive mini-games for breathing exercises, reframing, and self-kindness.",
+      "Crafted microcopy and UX flows tuned for younger players and caregivers.",
     ],
     stackSummary:
-      "Single-page web application built with a modern JavaScript framework and component-based UI, deployed on Netlify for easy distribution.",
-    aiSummary:
-      "Primarily a design- and interaction-led experience rather than an AI-heavy system, but architected so future updates can layer in adaptive guidance or generative content.",
+      "Single-page web game built with a modern JavaScript framework, deployed on Netlify.",
     screenshot: "/screenshots/emotion-island.png",
   },
   {
     id: "symphonious-liger",
-    name: "KOWRII – Fintech Educational Simulator",
+    name: "KOWRII – Fintech Learning Simulator",
     role: "Product Designer & Frontend Engineer",
     tagline:
-      "Interactive fintech simulator that helps users learn financial concepts through a playful, experimental interface.",
+      "Interactive simulator that makes financial concepts tangible through a playful, experimental interface.",
     url: "https://symphonious-liger-c12f0c.netlify.app/",
     status: "wip",
+    platform: "web",
     highlights: [
-      "Designed a simulation-style interface to teach key fintech and money-management ideas in an approachable way.",
-      "Experimented with visual metaphors and interactive flows to make abstract financial concepts more tangible.",
-      "Deployed on Netlify as a lightweight prototype for rapid iteration and user feedback.",
+      "Designed a simulation-style interface to teach fintech and money-management concepts.",
+      "Used visual metaphors and interactive flows to make abstract ideas concrete.",
+      "Deployed on Netlify as a lightweight prototype for rapid feedback cycles.",
     ],
     stackSummary:
-      "React-based static site or SPA bundled with a modern build tool and deployed via Netlify for fast preview and iteration.",
-    aiSummary:
-      "Architected to support AI tutors and scenario generators that adapt simulations to each learner's level.",
+      "React-based SPA bundled with a modern build tool and deployed via Netlify.",
     screenshot: "/screenshots/symphonious-liger.png",
   },
 ];
 
-
+export const mobileProjects: Project[] = [
+  {
+    id: "dateable",
+    name: "Dateable",
+    role: "Founding Mobile Engineer",
+    tagline:
+      "Dating app with an in-app assistant that helps users reflect on matches and craft better conversations.",
+    url: "https://dateable.app/",
+    status: "live",
+    platform: "mobile",
+    highlights: [
+      "Built the matching and messaging experience with a native-feeling mobile UI.",
+      "Shipped onboarding, discovery, and chat flows tuned for clarity and emotional safety.",
+      "Integrated an in-app assistant that offers reply suggestions and coaching on demand.",
+    ],
+    stackSummary:
+      "Cross-platform mobile stack (React Native / Expo) with a TypeScript API layer, auth, and realtime messaging.",
+    aiSummary:
+      "Assistant uses an LLM for reply suggestions and contextual coaching while preserving the user's own voice.",
+    screenshots: [
+      "/screenshots/mobile/dateable-home.png",
+      "/screenshots/mobile/dateable-match.png",
+      "/screenshots/mobile/dateable-agent.png",
+    ],
+  },
+  {
+    id: "cardology",
+    name: "Cardology",
+    role: "Creator & Mobile Engineer",
+    tagline:
+      "Modern mobile companion for the Cards of Destiny system — daily cards, yearly spreads, and a readable glossary.",
+    url: "https://cardology.app/",
+    status: "live",
+    platform: "mobile",
+    highlights: [
+      "Designed a clean, mobile-first interface for daily cards, yearly forecasts, and traditional spreads.",
+      "Built a glossary that makes the symbolic system approachable for new users.",
+      "Structured the data layer around traditional Cards of Destiny meanings as the source of truth.",
+    ],
+    stackSummary:
+      "Cross-platform mobile app (React Native / Expo) backed by TypeScript APIs and a structured card/meaning dataset.",
+    screenshot: "/screenshots/mobile/cardology-home.png",
+    screenshots: [
+      "/screenshots/mobile/cardology-home.png",
+      "/screenshots/mobile/cardology-yearly.png",
+      "/screenshots/mobile/cardology-spreads.png",
+      "/screenshots/mobile/cardology-glossary.png",
+    ],
+  },
+  {
+    id: "guapcoin",
+    name: "Guapcoin Wallet",
+    role: "Mobile Engineer",
+    tagline:
+      "Mobile crypto wallet with a clean send / receive flow and clear balance visibility.",
+    url: "https://guapcoin.com/",
+    status: "live",
+    platform: "mobile",
+    highlights: [
+      "Implemented core wallet flows: viewing balances, receiving via address or QR, and sending with validation.",
+      "Focused on clarity — users should always know what they hold, what they're sending, and to whom.",
+      "Built with a trust-first UX for a community-driven token economy.",
+    ],
+    stackSummary:
+      "Cross-platform mobile wallet integrating on-chain RPC, secure key storage, and transaction signing.",
+    screenshots: [
+      "/screenshots/mobile/guapcoin-wallet.png",
+      "/screenshots/mobile/guapcoin-send.png",
+      "/screenshots/mobile/guapcoin-receive.png",
+    ],
+  },
+];

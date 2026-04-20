@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { Project } from "@/data/projects";
 
 type ProjectCardProps = {
@@ -16,7 +15,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
     name,
     role,
     tagline,
-    url,
     highlights,
     stackSummary,
     aiSummary,
@@ -40,19 +38,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
             {name}
           </h3>
           <p className="mt-1 text-sm text-zinc-400">{tagline}</p>
-
-          {url && (
-            <div className="mt-3 flex flex-wrap gap-2 text-xs">
-              <Link
-                href={url}
-                target="_blank"
-                className="inline-flex items-center gap-1 rounded-full border border-pink-500/40 bg-zinc-900/80 px-3 py-1 text-zinc-200 transition group-hover:border-pink-400/80 group-hover:text-pink-100"
-              >
-                <span>View live</span>
-                <span aria-hidden>↗</span>
-              </Link>
-            </div>
-          )}
 
           {highlights?.length > 0 && (
             <ul className="mt-4 space-y-1.5 text-sm text-zinc-300">
