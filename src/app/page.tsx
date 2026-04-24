@@ -32,6 +32,9 @@ export default function Home() {
             <a href="#mobile" className="hover:text-pink-300">
               Mobile
             </a>
+            <a href="#deals" className="hover:text-pink-300">
+              Deals
+            </a>
             <a href="#stack" className="hover:text-pink-300">
               Stack
             </a>
@@ -140,6 +143,147 @@ export default function Home() {
                 reverse={index % 2 === 1}
               />
             ))}
+          </div>
+        </Section>
+
+        <Section
+          id="deals"
+          eyebrow="WEBSITE + APP DEALS"
+          title="Launch-ready sites for creators, artists, and brands."
+          subtitle="Bundle packages — a fully custom website plus a matching mobile app — built, designed, and deployed by me. Each demo below is a fully working landing page in its own style. Tap one to see it live."
+        >
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                slug: "model",
+                name: "Model · KIYA",
+                tag: "Editorial · High fashion",
+                swatch: "from-pink-500 via-fuchsia-500 to-rose-400",
+                image: "/images/demos/model/hero.jpg",
+                blurb: "Neon editorial portfolio for a street‑hip‑hop model. Pink high-impact typography, booking flow, press grid.",
+              },
+              {
+                slug: "rapper",
+                name: "Rapper · NXRTH",
+                tag: "Music · Tour · Merch",
+                swatch: "from-blue-600 via-cyan-400 to-indigo-500",
+                image: "/images/demos/rapper/hero.jpg",
+                blurb: "Album + world-tour hub with animated EQ player, tracklist, dates ticker, and merch store.",
+              },
+              {
+                slug: "creator",
+                name: "Creator · Sunday Mira",
+                tag: "Influencer · Partnerships",
+                swatch: "from-orange-300 via-pink-300 to-sky-300",
+                image: "/images/demos/creator/hero.jpg",
+                blurb: "Bright editorial creator site with brand ticker, channel tabs, gear list, and an inbound project brief.",
+              },
+              {
+                slug: "streamer",
+                name: "Streamer · VYPR",
+                tag: "Gaming · Live · Members",
+                swatch: "from-fuchsia-500 via-purple-500 to-cyan-400",
+                image: "/images/demos/streamer/hero.jpg",
+                blurb: "Neon HUD with live viewer counter, fake chat, schedule, clips, battlestation, and membership tiers.",
+              },
+              {
+                slug: "leather",
+                name: "Leather · Maison Oro",
+                tag: "E-commerce · Luxury",
+                swatch: "from-amber-500 via-yellow-600 to-orange-900",
+                image: "/images/demos/leather/hero.jpg",
+                blurb: "Florence atelier storefront: product grid, color swatches, journal, newsletter, and flagship map.",
+              },
+              {
+                slug: null,
+                name: "Custom for you",
+                tag: "Your brand · Your vibe",
+                swatch: "from-zinc-300 via-zinc-500 to-zinc-800",
+                image: null,
+                blurb: "Not seeing a fit? I design each bundle from scratch — brand, site, and mobile app built around your goals.",
+              },
+            ].map((demo) => {
+              const body = (
+                <>
+                  <div className={`relative aspect-[16/10] overflow-hidden rounded-t-2xl bg-gradient-to-br ${demo.swatch}`}>
+                    {demo.image ? (
+                      <img
+                        src={demo.image}
+                        alt={demo.name}
+                        className="h-full w-full object-cover opacity-90 transition duration-500 group-hover:scale-[1.04] group-hover:opacity-100"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 grid place-items-center">
+                        <span className="text-4xl font-semibold text-white/90">✦</span>
+                      </div>
+                    )}
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-transparent" />
+                    <span className="absolute left-4 top-4 rounded-full border border-white/20 bg-black/50 px-2.5 py-0.5 text-[10px] uppercase tracking-[0.3em] text-white backdrop-blur">
+                      {demo.tag}
+                    </span>
+                  </div>
+                  <div className="flex flex-1 flex-col justify-between gap-4 p-5">
+                    <div>
+                      <p className="text-base font-semibold text-zinc-50">{demo.name}</p>
+                      <p className="mt-2 text-sm text-zinc-400">{demo.blurb}</p>
+                    </div>
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="text-zinc-500">
+                        {demo.slug ? `aquariusmaximus.dev/demos/${demo.slug}` : "DM for a custom brief"}
+                      </span>
+                      <span className="rounded-full bg-pink-500/15 px-3 py-1 font-medium text-pink-200 transition group-hover:bg-pink-500 group-hover:text-white">
+                        {demo.slug ? "View demo →" : "Get in touch →"}
+                      </span>
+                    </div>
+                  </div>
+                </>
+              );
+              const classes =
+                "group flex flex-col overflow-hidden rounded-2xl border border-zinc-800/70 bg-zinc-950/60 transition hover:-translate-y-0.5 hover:border-pink-400/60 hover:shadow-[0_20px_60px_-20px_rgba(244,114,182,0.5)]";
+              return demo.slug ? (
+                <Link key={demo.name} href={`/demos/${demo.slug}`} className={classes}>
+                  {body}
+                </Link>
+              ) : (
+                <Link key={demo.name} href="/contact" className={classes}>
+                  {body}
+                </Link>
+              );
+            })}
+          </div>
+
+          <div className="mt-10 grid gap-4 rounded-3xl border border-pink-500/20 bg-gradient-to-br from-pink-500/10 via-zinc-950/60 to-fuchsia-500/10 p-6 md:grid-cols-[1.3fr_1fr] md:items-center md:p-8">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-pink-300">
+                Bundle pricing
+              </p>
+              <h3 className="mt-2 text-2xl font-semibold text-zinc-50">
+                Website + mobile app, launched in 4–6 weeks.
+              </h3>
+              <p className="mt-2 text-sm text-zinc-400">
+                Brand, copy, design, web build, and a matching React Native / Expo app on both stores. One project at a time — so yours gets real attention.
+              </p>
+              <ul className="mt-4 grid gap-2 text-sm text-zinc-300 sm:grid-cols-2">
+                <li>· Custom website like the demos above</li>
+                <li>· Matching iOS + Android app</li>
+                <li>· Booking / contact / commerce integrations</li>
+                <li>· Deploy + domain setup included</li>
+              </ul>
+            </div>
+            <div className="flex flex-col gap-3">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-pink-500 via-fuchsia-500 to-rose-400 px-5 py-3 text-sm font-semibold text-white shadow-[0_0_32px_rgba(244,114,182,0.9)] transition hover:brightness-110"
+              >
+                Book a bundle →
+              </Link>
+              <a
+                href="mailto:aquariusmaximusiam@gmail.com?subject=Website+%26+App+bundle"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-pink-500/40 bg-zinc-950/60 px-5 py-3 text-sm font-medium text-zinc-100 transition hover:border-pink-400/80 hover:text-pink-100"
+              >
+                Email me a brief
+              </a>
+            </div>
           </div>
         </Section>
 
