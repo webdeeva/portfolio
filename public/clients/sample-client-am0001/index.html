@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aquarius Maximus — Invoice &amp; Statement of Work</title>
+<style>
+  :root {
+    --gold: #c9a14a;
+    --gold-dark: #8a6a25;
+    --red: #b3121b;
+    --black: #0b0b0b;
+    --paper: #ffffff;
+    --ink: #1a1a1a;
+    --muted: #6b6b6b;
+    --rule: #e5dcc4;
+    --soft: #faf6ec;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #f3efe5;
+    color: var(--ink);
+    font-family: "Georgia", "Cambria", "Times New Roman", serif;
+    line-height: 1.5;
+  }
+
+  .page {
+    max-width: 8.5in;
+    margin: 24px auto;
+    background: var(--paper);
+    padding: 0.65in 0.7in;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 1px solid var(--rule);
+  }
+
+  /* ============ HEADER ============ */
+  header.brand {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    border-bottom: 3px double var(--gold);
+    padding-bottom: 16px;
+  }
+
+  .brand-left {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .logo {
+    width: 110px;
+    height: 110px;
+    flex-shrink: 0;
+  }
+
+  .brand-name {
+    font-family: "Georgia", serif;
+    font-weight: 700;
+    font-size: 28px;
+    letter-spacing: 1px;
+    color: var(--gold-dark);
+    line-height: 1.05;
+  }
+
+  .brand-tag {
+    color: var(--muted);
+    font-style: italic;
+    font-size: 13px;
+    margin-top: 4px;
+  }
+
+  .doc-title {
+    text-align: right;
+  }
+
+  .doc-title h1 {
+    margin: 0;
+    font-size: 26px;
+    letter-spacing: 3px;
+    color: var(--black);
+    text-transform: uppercase;
+  }
+
+  .doc-title .sub {
+    color: var(--red);
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* ============ META GRID ============ */
+  .meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 22px 0 10px;
+  }
+
+  .meta .box {
+    border: 1px solid var(--rule);
+    padding: 12px 14px;
+    background: var(--soft);
+  }
+
+  .meta h3 {
+    margin: 0 0 6px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+  }
+
+  .field {
+    display: block;
+    border-bottom: 1px dotted var(--gold-dark);
+    min-height: 20px;
+    padding: 2px 0;
+    color: var(--muted);
+    font-style: italic;
+    font-size: 14px;
+  }
+
+  .field[contenteditable="true"]:focus {
+    outline: none;
+    background: #fffcef;
+    color: var(--ink);
+    font-style: normal;
+  }
+
+  .field-label {
+    display: inline-block;
+    width: 95px;
+    color: var(--ink);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .row {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    padding: 3px 0;
+  }
+
+  /* ============ SECTION ============ */
+  section { margin-top: 26px; }
+
+  h2.section-title {
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--black);
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 6px;
+    margin: 0 0 12px;
+  }
+
+  h2.section-title::before {
+    content: "❖ ";
+    color: var(--red);
+  }
+
+  /* ============ ITEMS TABLE ============ */
+  table.items {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 6px;
+  }
+
+  table.items thead th {
+    text-align: left;
+    background: var(--black);
+    color: var(--gold);
+    padding: 10px 12px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  table.items thead th:last-child,
+  table.items tbody td:last-child {
+    text-align: right;
+  }
+
+  table.items tbody td {
+    padding: 12px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    font-size: 14px;
+  }
+
+  table.items tbody tr.bundle-header td {
+    background: var(--soft);
+    font-weight: 700;
+    color: var(--gold-dark);
+  }
+
+  table.items .desc-detail {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 4px;
+    font-style: italic;
+  }
+
+  table.items ul.included {
+    margin: 6px 0 0;
+    padding-left: 18px;
+    font-size: 13px;
+    color: var(--ink);
+  }
+
+  table.items ul.included li { margin: 2px 0; }
+
+  .free-tag {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  /* ============ TOTALS ============ */
+  .totals {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 12px;
+  }
+
+  .totals-table {
+    min-width: 320px;
+    border-collapse: collapse;
+  }
+
+  .totals-table td {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  .totals-table td:last-child { text-align: right; }
+
+  .totals-table .grand td {
+    border-top: 2px solid var(--black);
+    border-bottom: 2px double var(--black);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--red);
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  /* ============ PAY BUTTON ============ */
+  .pay-cta {
+    margin: 24px 0 4px;
+    padding: 18px;
+    background: linear-gradient(135deg, #fff8e1 0%, #faf0d4 100%);
+    border: 1px solid var(--gold);
+    text-align: center;
+  }
+
+  .pay-cta a.pay-btn {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 28px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 14px;
+    border-radius: 2px;
+    border: 2px solid var(--gold-dark);
+  }
+
+  .pay-cta a.pay-btn:hover { background: #8a0d14; }
+
+  .pay-cta .note {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 10px;
+    font-style: italic;
+    word-break: break-all;
+  }
+
+  /* ============ SOW BODY ============ */
+  .sow p, .sow li { font-size: 14px; }
+
+  .sow ol, .sow ul { padding-left: 22px; }
+
+  .timeline {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 0;
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-top: 6px;
+  }
+
+  .timeline .when {
+    font-weight: 700;
+    color: var(--gold-dark);
+    padding: 8px 0;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .timeline .what {
+    padding: 8px 0;
+    font-size: 14px;
+    border-bottom: 1px dotted var(--rule);
+  }
+
+  .timeline .when:last-of-type,
+  .timeline .what:last-of-type { border-bottom: none; }
+
+  /* ============ POLICY ============ */
+  .policy {
+    background: var(--soft);
+    border-left: 4px solid var(--red);
+    padding: 14px 18px;
+    font-size: 13.5px;
+  }
+
+  .policy strong { color: var(--red); }
+
+  /* ============ SIGNATURES ============ */
+  .signatures {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 30px;
+  }
+
+  .sig-block { font-size: 13px; }
+
+  .sig-line {
+    border-bottom: 1px solid var(--ink);
+    height: 44px;
+    margin-bottom: 6px;
+  }
+
+  .sig-label {
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  /* ============ FOOTER ============ */
+  footer.foot {
+    margin-top: 36px;
+    padding-top: 14px;
+    border-top: 2px double var(--gold);
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    font-style: italic;
+  }
+
+  footer.foot .mantra {
+    color: var(--gold-dark);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-style: normal;
+    font-size: 11px;
+    margin-bottom: 6px;
+  }
+
+  /* ============ TOOLBAR (screen-only) ============ */
+  .toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--black);
+    color: var(--gold);
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 13px;
+  }
+
+  .toolbar button {
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    padding: 8px 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 11px;
+    cursor: pointer;
+    border-radius: 2px;
+  }
+
+  .toolbar button:hover { background: #e3b85a; }
+
+  /* ============ PRINT ============ */
+  @media print {
+    body { background: #fff; }
+    .toolbar { display: none; }
+    .page {
+      box-shadow: none;
+      border: none;
+      margin: 0;
+      max-width: none;
+      padding: 0.4in;
+    }
+    .field[contenteditable="true"] { color: var(--ink); font-style: normal; }
+    .pay-cta a.pay-btn { color: #fff; }
+    section { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <span>Aquarius Maximus — Editable Invoice &amp; SOW Template</span>
+  <button onclick="window.print()">Print / Save as PDF</button>
+</div>
+
+<div class="page">
+
+  <!-- =================== HEADER =================== -->
+  <header class="brand">
+    <div class="brand-left">
+      <!-- Inline SVG recreation of the Aquarius Maximus lotus-flame logo -->
+      <svg class="logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Aquarius Maximus logo">
+        <defs>
+          <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#e3c47a"/>
+            <stop offset="50%" stop-color="#c9a14a"/>
+            <stop offset="100%" stop-color="#8a6a25"/>
+          </linearGradient>
+        </defs>
+        <!-- outer petals -->
+        <g fill="url(#goldGrad)" stroke="#8a6a25" stroke-width="0.5">
+          <path d="M100 180 C 30 175, 5 130, 15 95 C 35 120, 65 135, 100 140 Z"/>
+          <path d="M100 180 C 170 175, 195 130, 185 95 C 165 120, 135 135, 100 140 Z"/>
+          <path d="M100 175 C 50 170, 25 110, 35 70 C 55 100, 80 120, 100 130 Z"/>
+          <path d="M100 175 C 150 170, 175 110, 165 70 C 145 100, 120 120, 100 130 Z"/>
+          <path d="M100 170 C 70 160, 55 95, 65 55 C 80 85, 92 110, 100 125 Z"/>
+          <path d="M100 170 C 130 160, 145 95, 135 55 C 120 85, 108 110, 100 125 Z"/>
+        </g>
+        <!-- red flame -->
+        <path d="M100 25
+                 C 115 50, 140 70, 140 105
+                 C 140 135, 122 155, 100 155
+                 C 78 155, 60 135, 60 105
+                 C 60 70, 85 50, 100 25 Z"
+              fill="#b3121b"/>
+        <!-- inner black teardrop -->
+        <path d="M100 70
+                 C 110 90, 122 105, 122 125
+                 C 122 142, 112 152, 100 152
+                 C 88 152, 78 142, 78 125
+                 C 78 105, 90 90, 100 70 Z"
+              fill="#0b0b0b"/>
+      </svg>
+
+      <div>
+        <div class="brand-name">Aquarius<br/>Maximus</div>
+        <div class="brand-tag">Business coaching &amp; bespoke digital craft</div>
+      </div>
+    </div>
+
+    <div class="doc-title">
+      <h1>Invoice</h1>
+      <div class="sub">&amp; Statement of Work</div>
+    </div>
+  </header>
+
+  <!-- =================== META =================== -->
+  <div class="meta">
+    <div class="box">
+      <h3>Billed To</h3>
+      <div class="row"><span class="field-label">Client</span><span class="field" contenteditable="true">[Client Name]</span></div>
+      <div class="row"><span class="field-label">Company</span><span class="field" contenteditable="true">[Company / Organization]</span></div>
+      <div class="row"><span class="field-label">Email</span><span class="field" contenteditable="true">[client@email.com]</span></div>
+      <div class="row"><span class="field-label">Phone</span><span class="field" contenteditable="true">[Phone]</span></div>
+      <div class="row"><span class="field-label">Address</span><span class="field" contenteditable="true">[Address]</span></div>
+    </div>
+
+    <div class="box">
+      <h3>Invoice Details</h3>
+      <div class="row"><span class="field-label">Invoice #</span><span class="field" contenteditable="true">[AM-0001]</span></div>
+      <div class="row"><span class="field-label">Issue Date</span><span class="field" contenteditable="true">[MM / DD / YYYY]</span></div>
+      <div class="row"><span class="field-label">Due Date</span><span class="field" contenteditable="true">Due upon receipt</span></div>
+      <div class="row"><span class="field-label">Engagement</span><span class="field" contenteditable="true">45-Day Business Coaching Package</span></div>
+      <div class="row"><span class="field-label">From</span><span class="field" contenteditable="true">tavonia@gmail.com</span></div>
+    </div>
+  </div>
+
+  <!-- =================== ITEMS =================== -->
+  <section>
+    <h2 class="section-title">Services &amp; Investment</h2>
+    <table class="items">
+      <thead>
+        <tr>
+          <th style="width: 70%;">Description</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="bundle-header">
+          <td>45-Day Business Coaching Engagement with Aquarius Maximus</td>
+          <td>$1,999.00</td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Bundle includes:</strong>
+            <ul class="included">
+              <li>45 days of 1-on-1 business coaching with Aquarius Maximus</li>
+              <li>Personal Assistant AI Agent, configured for your business</li>
+              <li>3 months of included LLM usage for the AI Agent</li>
+              <li>6 months of hosting included for both websites below</li>
+            </ul>
+            <div class="desc-detail">Coaching cadence, communication channels, and AI agent scope detailed in the Statement of Work below.</div>
+          </td>
+          <td>Included</td>
+        </tr>
+
+        <tr>
+          <td>
+            <strong>Custom Website #1 — Primary Site</strong>
+            <div class="desc-detail">Fully custom build on Next.js with a database backend and an AI Admin panel that lets anyone update site content using natural-language prompts.</div>
+          </td>
+          <td>$999.00</td>
+        </tr>
+
+        <tr>
+          <td>
+            <strong>Custom Website #2 — Secondary Site <span class="free-tag">Courtesy</span></strong>
+            <div class="desc-detail">Identical scope to Website #1 (Next.js + database + AI Admin). Included at no additional charge as a courtesy of this engagement.</div>
+          </td>
+          <td><s style="color:var(--muted);">$999.00</s> &nbsp; $0.00</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="totals">
+      <table class="totals-table">
+        <tr><td>Subtotal</td><td>$3,997.00</td></tr>
+        <tr><td>Courtesy Discount (Website #2)</td><td>− $999.00</td></tr>
+        <tr class="grand"><td>Total Due</td><td>$2,998.00</td></tr>
+      </table>
+    </div>
+
+    <div class="pay-cta">
+      <a class="pay-btn" href="https://buy.stripe.com/eVq6oBfmn07Z8O12Yha7C0b" target="_blank" rel="noopener">Pay Securely via Stripe</a>
+      <div class="note">https://buy.stripe.com/eVq6oBfmn07Z8O12Yha7C0b</div>
+    </div>
+  </section>
+
+  <!-- =================== SOW =================== -->
+  <section class="sow">
+    <h2 class="section-title">Statement of Work</h2>
+
+    <p><strong>Engagement:</strong> A 45-day business coaching and digital build engagement between Aquarius Maximus (the &ldquo;Provider&rdquo;) and <span class="field" contenteditable="true" style="display:inline-block;min-width:160px;">[Client Name]</span> (the &ldquo;Client&rdquo;). Work begins on the Start Date below and concludes 45 days thereafter, unless extended by mutual written agreement.</p>
+
+    <p><strong>Start Date:</strong> <span class="field" contenteditable="true" style="display:inline-block;min-width:160px;">[MM / DD / YYYY]</span> &nbsp; · &nbsp; <strong>End Date:</strong> <span class="field" contenteditable="true" style="display:inline-block;min-width:160px;">[MM / DD / YYYY]</span></p>
+
+    <h3 style="margin-top:18px; color:var(--gold-dark); font-size:14px; letter-spacing:1px; text-transform:uppercase;">1. Scope of Work</h3>
+    <ol>
+      <li><strong>Business Coaching (45 days)</strong> — Structured 1-on-1 coaching with Aquarius Maximus covering strategy, positioning, operations, and growth. Cadence and communication channels to be confirmed at kickoff.</li>
+      <li><strong>Personal Assistant AI Agent</strong> — A custom-configured AI agent tailored to the Client&rsquo;s workflows. Includes setup, prompt engineering, integrations as feasible within scope, and 3 months of included LLM usage.</li>
+      <li><strong>Website #1 (Primary)</strong> — A fully custom website built on Next.js with a database backend and an AI Admin panel allowing non-technical users to make site changes through natural-language prompts.</li>
+      <li><strong>Website #2 (Courtesy)</strong> — A second website of identical scope to Website #1, provided at no additional cost as a courtesy of this engagement.</li>
+      <li><strong>Hosting</strong> — 6 months of hosting included for both websites, beginning at launch.</li>
+      <li><strong>LLM Usage</strong> — 3 months of included LLM usage for the Personal Assistant AI Agent and AI Admin features, beginning at delivery.</li>
+    </ol>
+
+    <h3 style="margin-top:18px; color:var(--gold-dark); font-size:14px; letter-spacing:1px; text-transform:uppercase;">2. Project Timeline</h3>
+    <div class="timeline">
+      <div class="when">Day 0</div>
+      <div class="what">Kickoff call. Client provides brand assets, content, and access credentials. Coaching cadence confirmed.</div>
+
+      <div class="when">Days 1 – 10</div>
+      <div class="what">Discovery, strategy intensives, and design direction for both websites. Personal Assistant AI Agent requirements gathered.</div>
+
+      <div class="when">Days 11 – 25</div>
+      <div class="what">Website #1 build (Next.js + database + AI Admin). AI Agent configuration begins. Weekly coaching sessions.</div>
+
+      <div class="when">Days 26 – 35</div>
+      <div class="what">Website #1 launch &amp; hosting activated. Website #2 build kicks off. AI Agent delivered to Client.</div>
+
+      <div class="when">Days 36 – 45</div>
+      <div class="what">Website #2 launch &amp; hosting activated. Final coaching sessions, handoff, AI Admin training, and engagement wrap-up.</div>
+
+      <div class="when">Post-45</div>
+      <div class="what">6 months of hosting and 3 months of LLM usage continue as per the included services.</div>
+    </div>
+
+    <h3 style="margin-top:18px; color:var(--gold-dark); font-size:14px; letter-spacing:1px; text-transform:uppercase;">3. Client Responsibilities</h3>
+    <ul>
+      <li>Timely delivery of content, brand assets, copy, and any required third-party credentials.</li>
+      <li>Reasonable availability for scheduled coaching sessions and review checkpoints.</li>
+      <li>Written feedback within 3 business days of each review request to keep the timeline on track.</li>
+    </ul>
+
+    <h3 style="margin-top:18px; color:var(--gold-dark); font-size:14px; letter-spacing:1px; text-transform:uppercase;">4. Payment Terms</h3>
+    <ul>
+      <li><strong>Total:</strong> $2,998.00 USD.</li>
+      <li><strong>Due:</strong> Upon receipt of this invoice, prior to project kickoff, via the secure Stripe link above.</li>
+      <li><strong>Late payment:</strong> Work may be paused if payment is not received within 7 days of the issue date.</li>
+      <li><strong>Out-of-scope work:</strong> Any work requested outside this Statement of Work will be quoted separately and require written approval before commencing.</li>
+    </ul>
+
+    <h3 style="margin-top:18px; color:var(--gold-dark); font-size:14px; letter-spacing:1px; text-transform:uppercase;">5. Refund &amp; Cancellation Policy</h3>
+    <div class="policy">
+      <p style="margin-top:0;"><strong>Cancellation by Client.</strong> The Client may cancel this engagement at any time by written notice to Aquarius Maximus. Refunds are calculated based on work completed and assets delivered at the time of cancellation:</p>
+      <ul>
+        <li><strong>Before kickoff (Day 0):</strong> Full refund, less a non-refundable administrative fee of $299 to cover scheduling and onboarding.</li>
+        <li><strong>Days 1 – 10:</strong> 50% refund of the coaching fee, less the $999 website fee (the custom website work, once initiated, is non-refundable). Any delivered work products remain the property of Aquarius Maximus until fully paid.</li>
+        <li><strong>Days 11+:</strong> No refunds, as significant build work and coaching hours have been allocated. Remaining sessions may be rescheduled within 30 days of the original end date at Provider&rsquo;s discretion.</li>
+        <li><strong>Hosting &amp; LLM credits:</strong> Non-refundable once activated, but transferable to the Client&rsquo;s own infrastructure on request.</li>
+      </ul>
+      <p style="margin-bottom:0;"><strong>Cancellation by Provider.</strong> If Aquarius Maximus is unable to deliver the engagement for any reason, the Client will receive a prorated refund of any undelivered services.</p>
+    </div>
+
+    <h3 style="margin-top:18px; color:var(--gold-dark); font-size:14px; letter-spacing:1px; text-transform:uppercase;">6. Ownership &amp; Confidentiality</h3>
+    <ul>
+      <li>Upon full payment, the Client owns all final website code, content, and design assets delivered under this engagement.</li>
+      <li>Aquarius Maximus retains the right to reference the engagement and finished work in portfolio and marketing materials, unless the Client requests otherwise in writing.</li>
+      <li>Both parties agree to keep confidential any non-public business information shared during the engagement.</li>
+    </ul>
+  </section>
+
+  <!-- =================== SIGNATURES =================== -->
+  <section>
+    <h2 class="section-title">Acceptance</h2>
+    <p style="font-size:13.5px;">By signing below, both parties agree to the services, pricing, timeline, and terms outlined in this Invoice &amp; Statement of Work.</p>
+
+    <div class="signatures">
+      <div class="sig-block">
+        <div class="sig-line"></div>
+        <div class="sig-label">Client signature &nbsp;·&nbsp; Date</div>
+        <div style="margin-top:10px;">Printed name: <span class="field" contenteditable="true" style="display:inline-block;min-width:140px;">[Client Name]</span></div>
+      </div>
+      <div class="sig-block">
+        <div class="sig-line"></div>
+        <div class="sig-label">Aquarius Maximus &nbsp;·&nbsp; Date</div>
+        <div style="margin-top:10px;">Printed name: <span class="field" contenteditable="true" style="display:inline-block;min-width:140px;">Aquarius Maximus</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== FOOTER =================== -->
+  <footer class="foot">
+    <div class="mantra">Strategy · Craft · Elevation</div>
+    Thank you for choosing Aquarius Maximus. Questions? Reach us at tavonia@gmail.com.
+  </footer>
+
+</div>
+
+<script>
+  // Allow users to click any italicized placeholder and it becomes editable inline.
+  // (contenteditable already handles this — this just clears placeholder text on first focus.)
+  document.querySelectorAll('.field[contenteditable="true"]').forEach(el => {
+    const original = el.textContent;
+    el.addEventListener('focus', () => {
+      if (el.textContent === original && original.startsWith('[') && original.endsWith(']')) {
+        el.textContent = '';
+      }
+    });
+    el.addEventListener('blur', () => {
+      if (el.textContent.trim() === '') el.textContent = original;
+    });
+  });
+</script>
+
+</body>
+</html>
